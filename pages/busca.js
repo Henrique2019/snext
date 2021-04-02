@@ -25,7 +25,7 @@ import { Book } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
-function biblia({data}) {
+function buscab({data}) {
   const classes = useStyles();
   const { ...rest } = data;
   console.log(data)
@@ -33,8 +33,6 @@ function biblia({data}) {
   return (
     
     <>
-    {[data].map((data => (
-        <>
     <Header
         brand={<b>SEJA ETERNO</b>}
         rightLinks={<HeaderLinks />}
@@ -46,34 +44,46 @@ function biblia({data}) {
         }}
         {...rest} 
       />
+      
       <Parallax image={require("assets/img/bg2.jpg")}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem>
+           
+              
               <div className={classes.brand}>
-                <h1 className={classes.title}>Jesus Cristo é o Senhor.</h1>
-                <h3 className={classes.subtitle}>
-                <strong>  {data.verses.chapter}:{data.verses.number} </strong>
+                <h1 className={classes.title}>Jesus Cristo é o Senhor.</h1> 
                
+               {[data].map((verses => (  
+                 
+                 <h3 className={classes.subtitle}>           
+                 <strong>{verses[0].book.name} {verses[0].chapter}:{verses[0].number}</strong>               
                 <br></br>
-                {data.verses[0].text}
+                {verses[0].text}
                 </h3>
+                
+                )))}
               </div>
-            </GridItem>
+              
+           
+            </GridItem> 
           </GridContainer>
         </div>
       </Parallax>
       
       <div className={classNames(classes.main, classes.mainRaised)}>
         
-        <GridItem md={12} className={classes.textCenter}>
-          <ul>
-            <li>
-              <h2>aaaaaaaaaa{data.verses[0].book.name}</h2>
-              <br></br>
-              <h3>bbbb</h3>
-            </li>
-          </ul>
+        <GridItem md={12} className={classes.title}>
+        <ul>  
+               {data.map((verses => (  
+                 
+                 <h3 className={classes.subtitle}>           
+                 <strong>{verses.book.name} {verses.chapter}:{verses.number}</strong>               
+                <br></br>
+                {verses.text}
+                </h3>
+                
+                )))}</ul>
           <TeamSection />
           <WorkSection />
         </GridItem>
@@ -85,10 +95,8 @@ function biblia({data}) {
         <h3> Livro: </h3>
         
         </>
-      )))}
-    </>
-  )
-  }
+      )}
+    
 export async function getServerSideProps() {
     
 // Buscando um verso aleatório de um capítulo
@@ -97,11 +105,11 @@ var body = {
   "search": "inferno"
 };
 const res = await apibiblia.post("verses/search", body)
-const data = await res.data
+const data = await res.data.verses
 console.log(data)
     return { props:{ data  } }
 }
 
 
 
-  export default biblia
+  export default buscab

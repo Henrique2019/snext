@@ -23,6 +23,7 @@ import styles from "assets/jss/nextjs-material-kit/pages/components.js";
 import { useEffect, useState } from 'react';
 import TeamSection from "pages-sections/LandingPage-Sections/TeamSection.js";
 import WorkSection from "pages-sections/LandingPage-Sections/WorkSection.js";
+import buscab from "./busca";
 // core components
 
 const useStyles = makeStyles(styles);
@@ -66,16 +67,8 @@ function biblia({data}) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         
         <GridItem md={12} className={classes.textCenter}>
-          <Link href="/login">
-            <a className={classes.link}>
-              <Button color="primary" size="lg" simple>
-                View Login Page
-              </Button>
-            </a>
-          </Link>
-          <TeamSection />
-          <WorkSection />
-        </GridItem>
+ nova
+ </GridItem>
         
       </div>
       <Footer />
@@ -97,4 +90,5 @@ function biblia({data}) {
         return { props:{ data }, // will be passed to the page component as props
         }
     }
+    
   export default biblia
