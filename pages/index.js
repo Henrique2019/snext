@@ -1,42 +1,43 @@
 import React from "react";
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
+
+// react components for routing our app without refresh
+import Link from "next/link";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
+import apibiblia from "../pages/service/apibiblia"
+// api biblia com axios
 
-// core components
 import Header from "components/Header/Header.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-
-import styles from "assets/jss/nextjs-material-kit/pages/landingPage.js";
-
-// Sections for this page
+import styles from "assets/jss/nextjs-material-kit/pages/components.js";
 import ProductSection from "pages-sections/LandingPage-Sections/ProductSection.js";
-import TeamSection from "pages-sections/LandingPage-Sections/TeamSection.js";
-import WorkSection from "pages-sections/LandingPage-Sections/WorkSection.js";
 
-const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+function biblias({data}) {
   const classes = useStyles();
-  const { ...rest } = props;
+  const { ...rest } = data;
   return (
-    <div>
-      <Header
-        color="transparent"
-        routes={dashboardRoutes}
-        brand="seja eterno"
+    
+    <>
+    {[data].map((data => (
+        <>
+    <Header
+        brand={<b>Seja Eterno</b>}
         rightLinks={<HeaderLinks />}
         fixed
+        color="transparent"
         changeColorOnScroll={{
           height: 400,
           color: "white"
@@ -50,24 +51,43 @@ export default function LandingPage(props) {
               <div className={classes.brand}>
                 <h1 className={classes.title}>Jesus Cristo é o Senhor.</h1>
                 <h3 className={classes.subtitle}>
-                <strong>Apocalipse 2:8</strong>
+                <strong>{data.book.name} {data.chapter}:{data.number}</strong>
                 <br></br>
-                “Eu sou o Alfa e o Ômega”, diz o Senhor Deus, “Aquele que é, que era e que há de vir, o Todo-Poderoso.”
+                {data.text}
                 </h3>
               </div>
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
-
+      
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <ProductSection />
-          <TeamSection />
-          <WorkSection />
-        </div>
+      <ProductSection />
+      
+        <GridItem md={12} className={classes.textCenter}>
+ nova
+ </GridItem>
+        
       </div>
+      
       <Footer />
-    </div>
-  );
-}
+    
+        <h1> texto bíblico aleatorio </h1>,
+        <h3> Livro: {data.book.name}</h3>
+        <p>version {data.book.version}</p>
+        </>
+      )))}
+    </>
+  )
+  }
+  export async function getServerSideProps(context) {
+    
+    // Buscando um verso aleatório de um capítulo
+    const response = await apibiblia.get("verses/nvi/random")
+    const data = await response.data;
+    console.log(data)
+        return { props:{ data }, // will be passed to the page component as props
+        }
+    }
+    
+  export default biblias

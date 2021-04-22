@@ -20,15 +20,12 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
 import styles from "assets/jss/nextjs-material-kit/pages/components.js";
-import { useEffect, useState } from 'react';
 import TeamSection from "pages-sections/LandingPage-Sections/TeamSection.js";
-import WorkSection from "pages-sections/LandingPage-Sections/WorkSection.js";
-import buscab from "./busca";
-// core components
+
 
 const useStyles = makeStyles(styles);
 
-function biblia({data}) {
+function blog({data}) {
   const classes = useStyles();
   const { ...rest } = data;
   return (
@@ -65,12 +62,13 @@ function biblia({data}) {
       </Parallax>
       
       <div className={classNames(classes.main, classes.mainRaised)}>
-        
+      <TeamSection />
         <GridItem md={12} className={classes.textCenter}>
  nova
  </GridItem>
         
       </div>
+      
       <Footer />
     
         <h1> texto bíblico aleatorio </h1>,
@@ -86,9 +84,9 @@ function biblia({data}) {
     // Buscando um verso aleatório de um capítulo
     const response = await apibiblia.get("verses/nvi/random")
     const data = await response.data;
-    console.log(data)
+    
         return { props:{ data }, // will be passed to the page component as props
         }
     }
     
-  export default biblia
+  export default blog

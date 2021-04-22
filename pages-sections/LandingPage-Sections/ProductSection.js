@@ -3,9 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import Book from "@material-ui/icons/Book";
+import FacebookIcon from '@material-ui/icons/Facebook';
+import YouTubeIcon from '@material-ui/icons/YouTube';
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -21,13 +21,17 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <h2 className={classes.title}>Deem graças ao SENHOR, porque ele é bom.
+O seu amor dura para sempre!</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+           Sinta esse amor, um amor incondicional fiel e misericordioso,
+           que perdoa a maldade e o pecado.
+          </h5>
+          <h5 className={classes.description}>
+           No amor não há medo; pelo contrário o perfeito amor expulsa o medo, <br/>
+            porque o medo supõe castigo. Aquele que tem medo não está aperfeiçoado no amor. <br/>
+           este é o amor : que andemos em obediência aos seus mandamentos. <br/>
+            <strong>mantenham-se no amor de DEUS.</strong> 
           </h5>
         </GridItem>
       </GridContainer>
@@ -35,27 +39,27 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Chat}
+              title="Bíblia on-line"
+              description="pesquise por palavra chave ( ex: amizade ), por livros do Antigo e Novo testamento, Pratique a Leitura da palavra de DEUS  "
+              icon={Book}
               iconColor="info"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={VerifiedUser}
-              iconColor="success"
+              title="redes sociais"
+              description=" Compartilhe com a família e amigos, siga-nos e e curtem as nossas paginas  no Facebook, Instagram e Twitter "
+              icon={FacebookIcon}
+              iconColor="info"
               vertical
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Fingerprint}
+              title="Vídeos"
+              description="Encontre os melhores Louvores, Hinos, Pregações, Sermões, Ensinamentos, e muito mais ..."
+              icon={YouTubeIcon}
               iconColor="danger"
               vertical
             />

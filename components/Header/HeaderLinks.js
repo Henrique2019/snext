@@ -1,18 +1,16 @@
-/*eslint-disable*/
+
 import React from "react";
 import Link from "next/link";
 
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
-import Icon from "@material-ui/core/Icon";
+
 
 // @material-ui/icons
-import { Apps, Message, Contacts , Book, School, AddBoxOutlined, HomeRounded } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import { Apps, Message, Book, School, AddBoxOutlined, HomeRounded } from "@material-ui/icons";
+
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -40,18 +38,18 @@ export default function HeaderLinks(props) {
         <CustomDropdown
           noLiPadding
           navDropdown
-          buttonText="biblia on-line"
+          buttonText="biblia "
           buttonProps={{
             className: classes.navLink,
             color: "transparent"
           }}
           buttonIcon={Book}
           dropdownList={[
-            <Link href="/components">
-              <a className={classes.dropdownLink}> busque por livros </a>
+            <Link href="/palavra">
+              <a className={classes.dropdownLink}> Pesquise por Palavra Chave </a>
             </Link>,
-             <Link href="/profile">
-             <a className={classes.dropdownLink}> busca personalizada </a>
+             <Link href="/livros">
+             <a className={classes.dropdownLink}> Pesquise por Livro </a>
            </Link>,
           ]}
         />
@@ -59,7 +57,7 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem} >
       
         <Button
-          href="/landing"
+          href="/blog.js"
           color="transparent"
           className={classes.navLink}
           buttonIcon={Apps}
@@ -70,12 +68,11 @@ export default function HeaderLinks(props) {
             
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/nextjs-material-kit?ref=njsmk-navbar"
+          href="/igrejas"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
-          <School className={classes.icons} /> estudos bíblicos
+          <Apps className={classes.icons} /> ministérios
         </Button>
       </ListItem>
 
@@ -101,7 +98,7 @@ export default function HeaderLinks(props) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
+            href="https://www.facebook.com/tendadafamiliaoficial/"
             target="_blank"
             color="transparent"
             className={classes.navLink}
@@ -119,7 +116,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
+            href="https://www.facebook.com/tendadafamiliaoficial/"
             target="_blank"
             className={classes.navLink}
           >
@@ -136,7 +133,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+            href="https://www.facebook.com/tendadafamiliaoficial/"
             target="_blank"
             className={classes.navLink}
           >

@@ -1,27 +1,42 @@
-import axios from "axios";
+import { useState } from 'react';
+import apibiblia from '../pages/service/apibiblia';
 
-const SSR = (props) => (
-  <>
-    <h1>GitHub info about {props.login}</h1>
 
-    <ul>
-      <li>name: {props.name}</li>
-      <li>repos: {props.public_repos}</li>
-      <li>followers: {props.followers}</li>
-    </ul>
-  </>
-);
+function Form({data}) {
+ 
+  
+  const registerUser = async event => {
+    event.preventDefault()
+   
+    
 
-export default SSR;
-
-export async function getServerSideProps({ query }) {
-  try {
-    const { data } = await axios(`https://api.github.com/users/${query.user}`);
-
-    return {
-      props: data,
-    };
-  } catch (error) {
-    console.error(error);
+    const res = await apibiblia.post("verses/search",{search: event.target.search.value, version: "nvi"})
+ 
+    const data = await res.data.verses
+   console.log(data)
+   
   }
+
+  return (
+  <div>
+    <form onSubmit={registerUser}>
+      <label htmlFor="search">digite uma palavra </label>
+      
+      <input id="search" name="search" type="text" autoComplete="search" required /><br></br>
+     
+      <button type="submit">Register</button>
+    </form>
+  <div>
+    <hr/>
+  <ul>
+ ver
+  </ul>
+    </div>
+    </div>
+  )
 }
+
+export default Form
+
+
+  
