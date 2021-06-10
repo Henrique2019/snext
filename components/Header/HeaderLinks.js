@@ -9,7 +9,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 
 // @material-ui/icons
-import { Apps, Message, Book, School, AddBoxOutlined, HomeRounded } from "@material-ui/icons";
+import { Apps, Message, Book, AudiotrackIcon, AddBoxOutlined, HomeRounded } from "@material-ui/icons";
 
 
 // core components
@@ -62,7 +62,7 @@ export default function HeaderLinks(props) {
           className={classes.navLink}
           buttonIcon={Apps}
         >
-          <Message className={classes.icons} />  Mensagens
+          <AudiotrackIcon className={classes.icons} />  Podcast
         </Button>
       </ListItem>
             
