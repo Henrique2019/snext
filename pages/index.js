@@ -72,9 +72,7 @@ function biblias({data}) {
       
       <Footer />
     
-        <h1> texto bíblico aleatorio </h1>,
-        <h3> Livro: {data.book.name}</h3>
-        <p>version {data.book.version}</p>
+        
         </>
       )))}
     </>
